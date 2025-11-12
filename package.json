@@ -1,0 +1,63 @@
+{
+  "name": "background-changer",
+  "displayName": "Background Changer",
+  "description": "VS Code extension that allows custom background themes",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.105.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "background-changer.selectImage",
+        "title": "Apply Background Theme",
+        "category": "Background Changer"
+      },
+      {
+        "command": "background-changer.resetBackground",
+        "title": "Reset Background Colors",
+        "category": "Background Changer"
+      }
+    ],
+    "configuration": {
+      "title": "Background Changer",
+      "properties": {
+        "backgroundChanger.backgroundImage": {
+          "type": "string",
+          "default": "",
+          "description": "Path to background image"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext .ts,.tsx",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.105.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@typescript-eslint/eslint-plugin": "^8.46.3",
+    "@typescript-eslint/parser": "^8.46.3",
+    "eslint": "^9.39.1",
+    "typescript": "^5.9.3",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/background-changer"
+  }
+}
